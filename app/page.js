@@ -3,7 +3,7 @@ import StudentInfo from "./StudentInfo";
 
 export default function Home() {
   return (
-    <main clas="flex min-h-screen flex-col items-center justify-between p-24">
+    <main class="flex min-h-screen flex-col p-24">
       <div>
         <h1>CPRG 306: Web Development 2 - Assignments</h1>
         <StudentInfo />
