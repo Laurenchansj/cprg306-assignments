@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
-import Item from "./item";
-import items from "./items.json";
+import Item from "../week5/item";
 
-export default function ItemList() {
+export default function ItemList({ items }) {
   const [sortBy, setSortBy] = useState("name");
   let condition = true; // if true, show Item component, if false, show unique category list
   let uniqueCategory = [];
@@ -17,7 +16,6 @@ export default function ItemList() {
         return 1;
       }
     });
-    console.log("Name");
   }
   if (sortBy === "category") {
     condition = true;
@@ -40,8 +38,8 @@ export default function ItemList() {
   }
 
   return (
-    <div className="h-fit">
-      <label className="m-4">Sort By: </label>
+    <div className="p-4 bg-yellow-50">
+      <label className="ml-4">Sort By: </label>
       <button
         onClick={(e) => setSortBy(e.target.value)}
         value="name"
@@ -71,9 +69,9 @@ export default function ItemList() {
             ))}
           </div>
         ) : (
-          <div>
+          <div className="m-4">
             {uniqueCategory.map((category) => (
-              <ul key={category} className="m-4">
+              <ul key={category} className="ml-4">
                 <p className="font-bold">
                   {category.charAt(0).toUpperCase() + category.slice(1)}
                 </p>
@@ -82,7 +80,6 @@ export default function ItemList() {
                   .map((item) => (
                     <li className="ml-4" key={item.id}>
                       {item.name}
-                      {/* <Item key={item.id} item={item} /> */}
                     </li>
                   ))}
               </ul>
