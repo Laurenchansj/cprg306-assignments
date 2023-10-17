@@ -17,7 +17,6 @@ export default function ItemList() {
         return 1;
       }
     });
-    console.log("Name");
   }
   if (sortBy === "category") {
     condition = true;
@@ -80,10 +79,10 @@ export default function ItemList() {
                 {items
                   .filter((item) => category === item.category)
                   .map((item) => (
-                    <li className="ml-4" key={item.id}>
-                      {item.name}
-                      {/* <Item key={item.id} item={item} /> */}
-                    </li>
+                    <Item key={item.id} item={item} />
+                    // <li className="ml-4" key={item.id}>
+                    //   <Item key={item.id} item={item} />
+                    // </li>
                   ))}
               </ul>
             ))}

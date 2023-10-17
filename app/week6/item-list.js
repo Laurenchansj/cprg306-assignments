@@ -78,9 +78,10 @@ export default function ItemList({ items }) {
                 {items
                   .filter((item) => category === item.category)
                   .map((item) => (
-                    <li className="ml-4" key={item.id}>
-                      {item.name}
-                    </li>
+                    <Item key={item.id} item={item} />
+                    // <li className="ml-4" key={item.id}>
+                    //   <Item key={item.id} item={item} />
+                    // </li>
                   ))}
               </ul>
             ))}

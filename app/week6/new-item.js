@@ -6,6 +6,8 @@ export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
+  const random = Math.floor(Math.random() * 1000000000000000);
+  const [id, setId] = useState(random);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,6 +16,7 @@ export default function NewItem({ onAddItem }) {
       name: name,
       quantity: quantity,
       category: category,
+      id: id,
     };
 
     onAddItem(Item);
