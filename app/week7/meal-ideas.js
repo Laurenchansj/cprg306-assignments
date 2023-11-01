@@ -38,16 +38,6 @@ export default function MealIdeas({ ingredient }) {
     }
   }, [ingredient]);
 
-  function show() {
-    if (!ingredient) {
-      return <p>Choose an ingredient.</p>;
-    } else if (meals === null || meals.length === 0) {
-      return <p>No meal found for {ingredient}</p>;
-    } else {
-      return meals.map((meal) => <li key={meal.idMeal}>{meal.strMeal}</li>);
-    }
-  }
-
   return (
     <div className="m-2">
       <h2 className="pt-1 pb-4 text-2xl font-bold">Meal Ideas</h2>
@@ -67,12 +57,11 @@ export default function MealIdeas({ ingredient }) {
         ) : (
           meals.map((meal) => <li key={meal.idMeal}>{meal.strMeal}</li>)
         )} */}
-        {/* {meals ? (
+        {meals ? (
           meals.map((meal) => <li key={meal.idMeal}>{meal.strMeal}</li>)
         ) : (
           <p>No meal found for {ingredient}</p>
-        )} */}
-        {show()}
+        )}
       </ul>
     </div>
   );
