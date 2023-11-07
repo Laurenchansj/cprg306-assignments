@@ -6,7 +6,7 @@ import { useState } from "react";
 import MealIdeas from "./meal-ideas";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState(itemsData.map((item) => ({ ...item })));
   const [selectedItemName, setSelectedItemName] = useState("");
 
   function handleAddItem(newItem) {
@@ -17,17 +17,17 @@ export default function Page() {
   // function handleItemSelect(selectedItemName) {
   //   setSelectedItemName("");
   // }
-
-  function handleItemSelect(item) {
-    const cleanedName = item.name
-      .replace(/[\uE000-\uF8FF]/g, "")
-      //.replace(/\p{Emoji}/gu, "")
-      .split(",")[0]
-      .trim();
-    setSelectedItemName(cleanedName);
-    console.log(cleanedName);
-    console.log("Hi");
-  }
+  const handleItemSelect = (item) => {
+    let itemName;
+    let cleanName;
+    if (item.name.includes(",")) {
+      itemName = item.name.split(",");
+      cleanName = itemName[0].trim();
+    } else {
+      cleanName = item.name.replace(/\p{Emoji}/gu, " ").trim();
+    }
+    setSelectedItemName(cleanName);
+  };
 
   return (
     <main className="bg-blue-100 pt-2 pb-2">
@@ -38,7 +38,7 @@ export default function Page() {
           <ul>
             <ItemList
               items={items}
-              value={selectedItemName}
+              //value={selectedItemName}
               onItemSelect={handleItemSelect}
               //onClick={handleItemSelect}
             />

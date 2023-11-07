@@ -4,10 +4,8 @@ export default function Item({ item, onSelect }) {
   // };
 
   return (
-    <li className="p-2 m-4 bg-blue-50 max-w-sm">
-      <h2 className="text-xl font-bold" onClick={onSelect}>
-        {item.name}
-      </h2>
+    <li className="p-2 m-4 bg-blue-50 max-w-sm" onClick={() => onSelect(item)}>
+      <h2 className="text-xl font-bold">{item.name}</h2>
       <div className="text=sm">
         Buy {item.quantity} in {item.category}
       </div>

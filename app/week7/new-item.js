@@ -47,7 +47,7 @@ export default function NewItem({ onAddItem }) {
             type="text"
             onChange={handleNameChange}
             value={name}
-            required
+            required={true}
             className="w-full max-w-sm border-2 border-gray-500 rounded mb-2.5"
           />
           <label className="w-full max-w-sm">Quantity:</label>
@@ -57,7 +57,7 @@ export default function NewItem({ onAddItem }) {
             value={quantity}
             min="1"
             max="99"
-            required
+            required={true}
             className="w-full max-w-sm border-2 border-gray-500 rounded mb-2.5"
           />
           <label className="w-full max-w-sm">Category:</label>

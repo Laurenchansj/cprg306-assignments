@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import Item from "../week5/item";
+import Item from "./item";
 
-export default function ItemList({ items, onSelect, onItemSelect }) {
+export default function ItemList({ items, onItemSelect }) {
+  //onSelect,
   const [sortBy, setSortBy] = useState("name");
   let condition = true; // if true, show Item component, if false, show unique category list
   let uniqueCategory = [];
@@ -65,11 +66,7 @@ export default function ItemList({ items, onSelect, onItemSelect }) {
         {condition ? (
           <div>
             {items.map((item) => (
-              <Item
-                key={item.id}
-                item={item}
-                onSelect={() => onItemSelect(item)}
-              />
+              <Item key={item.id} item={item} onSelect={onItemSelect} />
             ))}
           </div>
         ) : (
@@ -82,11 +79,8 @@ export default function ItemList({ items, onSelect, onItemSelect }) {
                 {items
                   .filter((item) => category === item.category)
                   .map((item) => (
-                    <Item
-                      key={item.id}
-                      item={item}
-                      onSelect={() => onItemSelect(item.name)}
-                    />
+                    <Item key={item.id} item={item} onSelect={onItemSelect} />
+                    //onSelect={() => onItemSelect(item.name)}
                     // <li className="ml-4" key={item.id}>
                     //   <Item key={item.id} item={item} />
                     // </li>
@@ -99,3 +93,4 @@ export default function ItemList({ items, onSelect, onItemSelect }) {
     </div>
   );
 }
+
