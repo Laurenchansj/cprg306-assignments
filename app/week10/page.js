@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useUserAuth } from "./_utils/auth-context"
+import Link from "next/link";
 
 
 export default function Page() {
@@ -36,7 +36,7 @@ export default function Page() {
                             <p className="m-4">Welcome, {user.displayName}</p>
                             <img src={user.photoURL} className="w-8 h-8 m-4"/>
                             <div className="h-px m-2"></div>
-                            <Link className="text-lg m-2 p-2 text-black bg-blue-300 rounded-md hover:underline" href="week8/shopping-list">Continuing Your Shopping List</Link>
+                            <Link className="text-lg m-2 p-2 text-black bg-blue-300 rounded-md hover:underline" href="week10/shopping-list">Continuing Your Shopping List</Link>
                             <div className="h-px m-2 mb-8"></div>
                         </div>
                         <button className="text-lg m-2 p-2 text-white bg-blue-500 rounded-md hover:underline" onClick={handleSignOut}>Sign Out</button>
@@ -45,8 +45,6 @@ export default function Page() {
                     <button className="text-lg m-2 p-2 text-white bg-blue-500 rounded-md hover:underline" onClick={handleSignIn}>Sign In</button> 
                 )}
             </section>
-            
-
         </main>
     )
 }
